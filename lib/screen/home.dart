@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
     return ListView(
 
       // Scroll 을 위해서 ListView 를 사용했고
-      padding: const EdgeInsets.all(35.0),
+      padding: const EdgeInsets.fromLTRB(0, 35, 0, 35),
       children: const [
         Center(child: PageHeader()),
         // 그림은 따로 줄인다고 해놓지 않았네... 앞에서 글로벌하게 변경하는 건가?

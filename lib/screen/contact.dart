@@ -1,6 +1,5 @@
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:joseph_website/screen/widgets.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -11,12 +10,12 @@ class ContactScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       // Scroll 을 위해서 ListView 를 사용했고
-      padding: const EdgeInsets.all(35.0),
+      padding: const EdgeInsets.fromLTRB(0, 35, 0, 35),
       children: [
         ResponsiveRowColumn(
           rowMainAxisAlignment: MainAxisAlignment.center,
-          rowPadding: const EdgeInsets.all(30),
-          columnPadding: const EdgeInsets.all(30),
+          rowPadding: const EdgeInsets.all(5),
+          columnPadding: const EdgeInsets.all(5),
           layout: ResponsiveWrapper.of(context).isSmallerThan(
                   DESKTOP) // 카드 사이즈 상관없이 화면사이즈를 기준으로 Row 인지 Column 인지 정하는구나.
               ? ResponsiveRowColumnType.COLUMN
@@ -200,7 +199,7 @@ class ContactContent extends StatelessWidget {
 
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 80,
         ),
       ],

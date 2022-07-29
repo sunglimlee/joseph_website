@@ -24,11 +24,10 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
-    widget._width ??= MediaQuery.of(context)
-        .size
-        .width; // QnADartGrammar 값이 없다는 뜻이지 null 이란 뜻이 아니다. 미리 null check 해야함.
+    var mediaQueryWidth = MediaQuery.of(context).size.width;
+    widget._width ??= mediaQueryWidth; // QnADartGrammar 값이 없다는 뜻이지 null 이란 뜻이 아니다. 미리 null check 해야함.
     return Align(
-      alignment: Alignment.center,
+      //alignment: Alignment.center,
       child: Container(
         decoration: BoxDecoration(
             border: Border(
@@ -60,9 +59,13 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 children: [
                   ResponsiveVisibility(
                     visible: false,
-                    visibleWhen: const [Condition.largerThan(name: MOBILE)],
-                    replacement: Padding(padding: EdgeInsets.symmetric(horizontal: 20),child: IconButton(onPressed: () => widget._toggleViewFunction("HOMESCREEN") , icon: const Icon(Icons.home),)),
-                    child: OutlinedButton(
+                    visibleWhen: const [Condition.largerThan(name: MOBILE),],
+                    replacement: Padding(padding: const EdgeInsets.symmetric(horizontal: 20),child: IconButton(onPressed: () => widget._toggleViewFunction("HOMESCREEN") , icon: const Icon(Icons.home),)),
+                    child:
+
+                    OutlinedButton(
+
+                      //style: ButtonStyle(foregroundColor: MaterialStateProperty.all<Color>(Colors.black),),
                       onPressed: () => widget._toggleViewFunction("HOMESCREEN"),
                       child: const Text("HOME"),
                     ),
@@ -73,7 +76,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   ResponsiveVisibility(
                     visible: false,
                     visibleWhen: const [Condition.largerThan(name: MOBILE)],
-                    replacement: Padding(padding: EdgeInsets.symmetric(horizontal: 20),child: IconButton(onPressed: () => widget._toggleViewFunction("ABOUTSCREEN") , icon: const Icon(Icons.account_circle_rounded),)),
+                    replacement: Padding(padding: const EdgeInsets.symmetric(horizontal: 20),child: IconButton(onPressed: () => widget._toggleViewFunction("ABOUTSCREEN") , icon: const Icon(Icons.account_circle_rounded),)),
                     child: OutlinedButton(
                       onPressed: () => widget._toggleViewFunction("ABOUTSCREEN"),
                       child: const Text("ABOUT"),
@@ -82,15 +85,17 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   const SizedBox(
                     width: 30,
                   ),
-                  ResponsiveVisibility(
-                    visible: false,
-                    visibleWhen: const [Condition.largerThan(name: MOBILE)],
-                    replacement: Padding(padding: EdgeInsets.symmetric(horizontal: 20),child: IconButton(onPressed: () => widget._toggleViewFunction("CONTACTSCREEN") , icon: const Icon(Icons.contact_support),)),
-                    child: OutlinedButton(
-                      onPressed: () => widget._toggleViewFunction("CONTACTSCREEN"),
-                      child: const Text("CONTACT"),
-                    ),
-                  ),
+              ResponsiveVisibility(
+                visible: false,
+                visibleWhen: const [Condition.largerThan(name: MOBILE)],
+                replacement: Padding(padding: const EdgeInsets.symmetric(horizontal: 20),child: IconButton(onPressed: () => widget._toggleViewFunction("CONTACTSCREEN") , icon: const Icon(Icons.contact_support),)),
+                child: OutlinedButton(
+                  onPressed: () => widget._toggleViewFunction("CONTACTSCREEN"),
+                  child: const Text("CONTACT"),
+                ),
+              ),
+
+
                 ],
               ),
             ),
@@ -107,23 +112,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
       ),
     );
   }
+
+
 }
 
-
-
-class AppBarTitle extends StatelessWidget {
-  const AppBarTitle({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: const [
-        Icon(null), // TODO
-        Text("Joseph's WebPage"),
-      ],
-    );
-  }
-}
 
 class MenuTextButton extends StatelessWidget {
   const MenuTextButton({Key? key, required titleText})
@@ -223,12 +215,10 @@ class PageFooterStateful extends StatefulWidget {
 class _PageFooterStatefulState extends State<PageFooterStateful> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: TextButton(
-        child: const Text("Email."),
-        onPressed: () {
-        },
-      ),
+    return TextButton(
+      child: const Text("Email."),
+      onPressed: () {
+      },
     );
   }
 }

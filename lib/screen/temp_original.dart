@@ -28,7 +28,7 @@ class LandingPage extends StatelessWidget {
             ),
           ),
           centerTitle: true,
-          title: const AppBarTitle(),
+          title: CustomAppBar(),
           leading: ResponsiveVisibility(
             // CheckThisOut 이 부분을 새롭게 보이게 할 것인지 정의하네
             hiddenWhen: const [Condition.largerThan(name: TABLET)], // 이럴때는 감추어라.

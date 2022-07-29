@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:joseph_website/data/dummy_data.dart';
 import 'package:joseph_website/screen/about.dart';
 import 'package:joseph_website/screen/contact.dart';
 import 'package:joseph_website/screen/widgets.dart';
@@ -21,7 +20,7 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     // 자 아주 중요하다. 내가 원하는대로 되는지 보자. 갑자기 데이터를 주고 받는게 헷갈린다.
 
-    List<TileData> tileData = TileData.staticTileData;
+    //List<TileData> tileData = TileData.staticTileData;
     return SizedBox( // QnAAppbar Appbar 의 사이즈를 정하는 부분
       width: 1200,
       child: Scaffold(
@@ -29,15 +28,15 @@ class _LandingPageState extends State<LandingPage> {
         appBar: PreferredSize( // appBar 베스트
           preferredSize: Size.fromHeight(ResponsiveValue(
             context,
-            defaultValue: 80.0,
+            defaultValue: 70.0,
             valueWhen: const [
               Condition.smallerThan(
                 name: MOBILE,
-                value: 100.0,
+                value: 60.0,
               ),
               Condition.largerThan(
                 name: TABLET,
-                value: 120.0,
+                value: 100.0,
               )
             ],
           ).value!),
@@ -46,7 +45,7 @@ class _LandingPageState extends State<LandingPage> {
           ),
         ),
         body: Center(
-          child: Container(width: 1270,
+          child: SizedBox(width: 1270,
             // Scaffold 의 Body 부분이다. 여기가 중요한 부분이지. 근데 너무 짧은데??
             child: navigationForBody(bodyForPage),
           ),

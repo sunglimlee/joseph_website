@@ -22,7 +22,7 @@ ThemeData lightTheme = ThemeData( // 여기서 일일이 다 지정해주었다.
 
     ),
     floatingActionButtonTheme:
-    FloatingActionButtonThemeData(backgroundColor: COLOR_ACCENT),
+    const FloatingActionButtonThemeData(backgroundColor: COLOR_ACCENT),
 
     //OutlinedButtonTheme : OutlinedButtonThemeData(style: ButtonStyle()),
 
@@ -39,7 +39,7 @@ style: ButtonStyle
 (
 padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
 // 글자에 관련된 공간 설정, 상속 관련이므로 뭘쓰든지 빼든지 상관없다.
-EdgeInsets.symmetric(horizontal: 40.0
+const EdgeInsets.symmetric(horizontal: 40.0
 ,
 vertical: 20.0
 )
@@ -88,7 +88,7 @@ ThemeData darkTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
           padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-              EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
+              const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
           // 뭔말인지 알지? 값이 변경되면 부모가 포지션을 정해준다. 왜냐면 여기서 40을 60으로 바꿔서 부모가 가능한지 알아보고 키운거니깐.
           shape: MaterialStateProperty.all<OutlinedBorder>(
               RoundedRectangleBorder(

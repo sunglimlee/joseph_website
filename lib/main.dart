@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:joseph_website/screen/landing_page.dart';
 import 'package:joseph_website/theme/theme_manager.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:joseph_website/theme/theme_contants.dart';
+import 'package:joseph_website/theme/theme_constants.dart';
 
 void main() {
   runApp(MyApp());
